@@ -17,7 +17,7 @@ def check_generation_status():
     return "error"
 
 def main():
-    st.title("Mediator Dashboard")
+    st.title("Deep Ecology - Mediator Dashboard")
 
     if 'generation_started' not in st.session_state:
         st.session_state.generation_started = False
