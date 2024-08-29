@@ -18,17 +18,21 @@ def check_generation_status():
 def main():
     st.title("Deep Ecology - Mediator Dashboard")
 
-    if st.button("Check State"):
+    status_placeholder = st.empty()
+    
+    while True:
         status = check_generation_status()
         
-        if status == "not_started":
-            st.info("No generation running.")
-        elif status == "started":
-            st.warning("Generation in progress...")
+        if status == "started":
+            status_placeholder.warning("Generation in progress...")
         elif status == "completed":
-            st.success("Generation completed. Ready to launch experience!")
+            status_placeholder.success("Generation completed. Ready to launch experience!")
+        elif status == "not_started":
+            status_placeholder.info("No generation running")
         else:
-            st.error("Error checking generation status.")
+            status_placeholder.error("Error checking generation status.")
+        
+        time.sleep(5)  # Check every 5 seconds
 
 if __name__ == "__main__":
     main()
