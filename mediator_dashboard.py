@@ -33,7 +33,7 @@ def main():
         else:
             status_placeholder.error("Error checking generation status.")
         
-        # time.sleep(5)  # Check every 5 seconds
+        time.sleep(500)  # Check every 5 seconds
 
 if __name__ == "__main__":
     main()
